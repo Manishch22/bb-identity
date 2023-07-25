@@ -1,0 +1,423 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "the-endpoint-to-validate-wallet-create-wallet-user-id;successfully-validates-the-wallet-and-generates-the-wallet-user-id-smoke-type-test",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "Successfully validates the wallet and generates the wallet user id smoke type test",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 467399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "Wants to validate the wallet and generate wallet user id",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 142000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "Send otp with given \"9352472058\" as individualId",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:46"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1169591899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "Send POST /wallet-binding request with given \"9352472058\" as individualId and \"OTP\" as authFactorType and \"alpha-numeric\" as format and \"111111\" as challenge and publicKey",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:66"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1076186500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "Receive a response from the /wallet-binding endpoint",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:91"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2282899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "The /wallet-binding response should be returned in a timely manner 15000ms",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 944999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "The /wallet-binding endpoint response should have status 200",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:104"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 658599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "The /wallet-binding endpoint response should match json schema with no errors",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:109"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9547399
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 274199
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@method=POST",
+            "line": 1
+          },
+          {
+            "name": "@endpoint=/binding/wallet-binding",
+            "line": 1
+          },
+          {
+            "name": "@smoke",
+            "line": 4
+          },
+          {
+            "name": "@unit",
+            "line": 4
+          },
+          {
+            "name": "@positive",
+            "line": 4
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "the-endpoint-to-validate-wallet-create-wallet-user-id;not-able-to-generate-the-wallet-binding-because-of-unsupported-challenge-format",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "Not able to generate the wallet binding because of unsupported challenge format",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 488600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 16,
+            "name": "Wants to validate the wallet and generate wallet user id",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 160799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "Send POST /wallet-binding request with given invalid format \"n3fy2qkg9r7h2\" as individualId and \"OTP\" as authFactorType and \"invalid_format\" as format and \"string\" as challenge and publicKey",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:121"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 529553599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "Receive a response from the /wallet-binding endpoint",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:91"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1645099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "The /wallet-binding response should be returned in a timely manner 15000ms",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 296300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "The /wallet-binding endpoint response should have status 200",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:104"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 207999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "The /wallet-binding endpoint response should match json schema with errors",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:142"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 463300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "The /wallet-binding response should contain errorCode property equals to \"invalid_challenge_format\"",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:152"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 186200
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 26199
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@method=POST",
+            "line": 1
+          },
+          {
+            "name": "@endpoint=/binding/wallet-binding",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 14
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "the-endpoint-to-validate-wallet-create-wallet-user-id;not-able-to-generate-the-wallet-binding-because-of-invalid-public-key",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "Not able to generate the wallet binding because of invalid public key",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 38100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 26,
+            "name": "Wants to validate the wallet and generate wallet user id",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "Send POST /wallet-binding request with given format \"n3fy2qkg9r7h2\" as individualId and \"OTP\" as authFactorType and \"alpha-numeric\" as format and \"string\" as challenge and invalid publicKey",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:166"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 367757799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "Receive a response from the /wallet-binding endpoint",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:91"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 390200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "The /wallet-binding response should be returned in a timely manner 15000ms",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:96"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 284000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "The /wallet-binding endpoint response should have status 200",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:104"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 127500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 31,
+            "name": "The /wallet-binding endpoint response should match json schema with errors",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:142"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 558599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 32,
+            "name": "The /wallet-binding response should contain errorCode property equals to \"invalid_public_key\"",
+            "match": {
+              "location": "features\\support\\wallet_binding.js:152"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 160799
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 30400
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@method=POST",
+            "line": 1
+          },
+          {
+            "name": "@endpoint=/binding/wallet-binding",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 24
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "the-endpoint-to-validate-wallet-create-wallet-user-id",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "The endpoint to validate wallet create wallet user id",
+    "tags": [
+      {
+        "name": "@method=POST",
+        "line": 1
+      },
+      {
+        "name": "@endpoint=/binding/wallet-binding",
+        "line": 1
+      }
+    ],
+    "uri": "features\\wallet_binding.feature"
+  }
+]
