@@ -91,9 +91,11 @@ Then(/^The \/linked-authorization\/link-status endpoint response should have sta
 });
 
 Then(
-  /^The \/linked-authorization\/link-status endpoint response should have content-type: application\/json header$/,
-  () => {
-    specWalletLinkStatus.response().should.have.header(contentTypeHeader.key, contentTypeHeader.value);
+  /^The \/linked-authorization\/link-status response should have "([^"]*)": "([^"]*)" header$/,
+  (key, value) => {
+    specWalletLinkStatus
+      .response()
+      .should.have.headerContains(key, value);
   }
 );
 
@@ -278,7 +280,7 @@ When(
   }
 );
 
-// Scenario: Not able to check the status of link code because of the link code connected to a different transaction id
+// Scenario: Not able to check the status of link code because of the linkCode connected to a different transactionId
 // Given and others Then for this scenario are written in the aforementioned example
 Given('The second link code for diffrent transaction id is generated', async () => {
   specWalletGenerateLinkCode_02
@@ -297,7 +299,7 @@ Given('The second link code for diffrent transaction id is generated', async () 
 });
 
 When(
-  /^Send POST \/linked-authorization\/link-status request with given X-XSRF-TOKEN header, transactionId, link code connected to a different transaction id and requestTime$/,
+  /^Send POST \/linked-authorization\/link-status request with given X-XSRF-TOKEN header, transactionId, linkCode connected to a different transactionId and requestTime$/,
   () => {
     specWalletLinkStatus
       .post(baseUrl)

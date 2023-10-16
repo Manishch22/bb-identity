@@ -5,14 +5,16 @@ const {
   localhost,
   contentTypeHeader,
   defaultResponseTime,
-  oidcWellKnownOpenidConfigurationEndpoint,
+  wellKnownOpenidConfigurationEndpoint,
   oidcWellKnownOpenidConfigurationSchema,
 } = require('../support/helpers/helpers');
 
 chai.use(require('chai-json-schema'));
 
-const baseUrl = localhost + oidcWellKnownOpenidConfigurationEndpoint;
-const endpointTag = { tags: `@endpoint=/${oidcWellKnownOpenidConfigurationEndpoint}` };
+const baseUrl = localhost + wellKnownOpenidConfigurationEndpoint;
+const endpointTag = { tags: `@endpoint=/${wellKnownOpenidConfigurationEndpoint}` };
+
+let specOpenidConfiguration;
 
 Before(endpointTag, () => {
   specOpenidConfiguration = spec();
@@ -40,8 +42,11 @@ Then(/^The response from \/\.well\-known\/openid\-configuration should have stat
 );
 
 Then(
-  /^The response from \/\.well\-known\/openid\-configuration should have content\-type: application\/json header$/,
-  () => specOpenidConfiguration.response().to.have.header(contentTypeHeader.key, contentTypeHeader.value)
+  /^The response from \/\.well\-known\/openid\-configuration response should have "([^"]*)": "([^"]*)" header$/,
+  (key, value) =>
+    specOpenidConfiguration
+      .response()
+      .should.have.headerContains(key, value)
 );
 
 Then(/^The response from \/\.well\-known\/openid\-configuration should match json schema$/, () =>
